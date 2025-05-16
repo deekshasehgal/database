@@ -35,7 +35,7 @@ When you check the Analytics page, you will find it locked, not working. In this
 
 ![Analytics page not working](./images/analytics-not-working.png " ")
 
-Before making changes, we need to switch back to the development environment. To do this, update the **.env** file by changing PROD\_USER to DEV\_USER, ensuring the application connects to the development database.
+Before making changes, we need to switch back to the development environment. To do this, update the **.env** file by changing prod\_user to dev\_user, ensuring the application connects to the development database.
 
 Now, let's modify the application code to enable the Analytics page.
 
@@ -92,7 +92,7 @@ Run the SQL scripts (attendance\_table.sql and performancereviews\_table.sql) fr
 
         ```sql
         <copy>
-            connect DEV_USER/[PASSWORD]
+            sql dev_user/$DBPASSWORD@"$DBCONNECTION"
         </copy>
         ```
 
@@ -157,19 +157,19 @@ Follow the same steps as in the previous lab (starting from `project export`), a
 
 <details><summary>**Solution**</summary>
 
-1. Change the username in the .env file from DEV\_USER to PROD\_USER.
+1. Change the username in the .env file from dev\_user to prod\_user.
 2. Refresh the application window. Only the "Employees per Department" chart appears since PROD_USER lacks the two new tables. You'll fix this with **project** commands.
 3. In SQLcl, connect as DEV_USER and navigate to the application folder `sqlcl-project-react-app`.
 
     ```sql
     <copy>
-        connect DEV_USER/[PASSWORD]
+        sql dev_user/$DBPASSWORD@"$DBCONNECTION"
     </copy>
     ```
 
     ```sql
     <copy>
-        cd /home/oracle/assets/workshops/sqlcl-projects-react-app
+        cd /home/assets/assets/workshops/sqlcl-projects-react-app
     </copy>
     ```
 
